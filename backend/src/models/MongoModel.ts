@@ -14,11 +14,11 @@ export default abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async getByParams(search: string): Promise<T[] | null> {
-    const searchRegex = new RegExp(search, "i");
+    const searchRegex = new RegExp(search, 'i');
     return this._model.find({
       $or: [
-        { produto: { $regex : searchRegex } },
-        { descricao: { $regex : searchRegex } },
+        { produto: { $regex: searchRegex } },
+        { descricao: { $regex: searchRegex } },
       ],
     });
   }
@@ -43,11 +43,12 @@ export default abstract class MongoModel<T> implements IModel<T> {
 
   public async updatePartial(_id: string, obj: Partial<T>): Promise<T | null> {
     if (!isValidObjectId(_id)) throw new Error(ErrorTypes.InvalidMongoId);
-    return this._model.findByIdAndUpdate(
+    const productUpdated = this._model.findByIdAndUpdate(
       { _id },
       { ...obj } as UpdateQuery<T>,
       { new: true },
     );
+    return productUpdated;
   }
 
   public async delete(_id: string): Promise<T | null> {
