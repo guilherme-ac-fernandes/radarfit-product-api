@@ -13,11 +13,15 @@ export default abstract class MongoModel<T> implements IModel<T> {
     return this._model.find();
   }
 
-  // public async getByParams(_id: string): Promise<T[] | null> {
-  //   // if (!isValidObjectId(_id)) throw new Error(ErrorTypes.InvalidMongoId);
-  //   // return this._model.findOne({ _id });
-  //   return null;
-  // }
+  public async getByParams(search: string): Promise<T[] | null> {
+    const searchRegex = new RegExp(search, "i");
+    return this._model.find({
+      $or: [
+        { produto: { $regex : searchRegex } },
+        { descricao: { $regex : searchRegex } },
+      ],
+    });
+  }
 
   public async getOne(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw new Error(ErrorTypes.InvalidMongoId);
