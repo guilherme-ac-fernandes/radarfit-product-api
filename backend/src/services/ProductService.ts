@@ -41,7 +41,7 @@ export default class ProductService implements IService<IProduct> {
   }
 
   public async updatePartial(_id: string, obj: unknown): Promise<IProduct> {
-    const parsed = ProductZodSchema.safeParse(obj); // colocar partial
+    const parsed = ProductZodSchema.partial().safeParse(obj);
     if (!parsed.success) throw parsed.error;
     const productUpdate = await this._product.updatePartial(_id, parsed.data);
     if (!productUpdate) throw new Error(ErrorTypes.EntityNotFound);

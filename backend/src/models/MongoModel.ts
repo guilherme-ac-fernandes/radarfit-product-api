@@ -38,13 +38,12 @@ export default abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async updatePartial(_id: string, obj: Partial<T>): Promise<T | null> {
-    // if (!isValidObjectId(_id)) throw new Error(ErrorTypes.InvalidMongoId);
-    // return this._model.findByIdAndUpdate(
-    //   { _id },
-    //   { ...obj } as UpdateQuery<T>,
-    //   { new: true },
-    // );
-    return null;
+    if (!isValidObjectId(_id)) throw new Error(ErrorTypes.InvalidMongoId);
+    return this._model.findByIdAndUpdate(
+      { _id },
+      { ...obj } as UpdateQuery<T>,
+      { new: true },
+    );
   }
 
   public async delete(_id: string): Promise<T | null> {
