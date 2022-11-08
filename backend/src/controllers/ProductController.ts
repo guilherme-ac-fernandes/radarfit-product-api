@@ -10,11 +10,10 @@ export default class ProductController {
     return res.status(200).json(result);
   }
 
-  // public async getByParams(req: Request, res: Response<IProduct[]>) {
-  //   const { q: search } = req.params;
-  //   const result = await this._service.getByParams(search);
-  //   return res.status(200).json(result);
-  // }
+  public async getByParams(req: Request, res: Response<IProduct[]>) {
+    const result = await this._service.getByParams(String(req.query.q));
+    return res.status(200).json(result);
+  }
 
   public async getOne(req: Request, res: Response<IProduct>) {
     const result = await this._service.getOne(req.params.id);

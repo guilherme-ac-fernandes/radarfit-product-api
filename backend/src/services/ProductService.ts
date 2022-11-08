@@ -14,11 +14,11 @@ export default class ProductService implements IService<IProduct> {
     return this._product.getAll();
   }
 
-  // public async getByParams(search: string): Promise<IProduct> {
-  //   const products = await this._product.getByParams(search);
-  //   if (!products) throw new Error(ErrorTypes.EntityNotFound);
-  //   return products;
-  // }
+  public async getByParams(search: string): Promise<IProduct[]> {
+    const products = await this._product.getByParams(search);
+    if (!products) throw new Error(ErrorTypes.EntityNotFound);
+    return products as unknown as IProduct[];
+  }
 
   public async getOne(_id: string): Promise<IProduct> {
     const product = await this._product.getOne(_id);
