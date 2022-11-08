@@ -1,6 +1,6 @@
 export interface IModel<T> {
   getAll(): Promise<T[]>;
-  // getByParams(_id: string): Promise<T[] | null>;
+  getByParams(search: string): Promise<T[] | null>;
   getOne(_id: string): Promise<T | null>;
   create(obj: T): Promise<T>;
   update(_id: string, obj: T): Promise<T | null>;
