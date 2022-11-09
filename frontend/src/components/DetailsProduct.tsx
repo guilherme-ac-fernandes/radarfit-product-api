@@ -47,11 +47,11 @@ export default function DetailsProduct({
   };
 
   return (
-    <aside>
+    <section>
       {!edit ? (
         <div>
-          <h2>Detalhes</h2>
-          <h3>{product.produto}</h3>
+          <h3>Detalhes</h3>
+          <p>{product.produto}</p>
           <p>
             R$ <span>{product.valor.toFixed(2)}</span>
           </p>
@@ -69,6 +69,6 @@ export default function DetailsProduct({
       ) : (
         <EditFormProduct product={product} setEdit={setEdit} />
       )}
-    </aside>
+    </section>
   );
 }
