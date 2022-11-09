@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { createProduct } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
@@ -12,6 +11,10 @@ interface AddProductModalProps {
   setProducts: (newState: IProduct[] | []) => void;
 }
 
+// Utilização do React - Bootstrap para criação do modal de criaçõa de novo Produto
+// juntamente com o vídeo do Caleb Curry no youtube
+// source: https://react-bootstrap.github.io/components/modal/
+// source video: https://m.youtube.com/watch?v=aeQa9U0fLCI&autoplay=1
 export default function AddProductModal({ setProducts }: AddProductModalProps) {
   const [show, setShow] = useState(false);
   const [productName, setProductName] = useState('');
@@ -52,9 +55,9 @@ export default function AddProductModal({ setProducts }: AddProductModalProps) {
 
   return (
     <>
-      <Button variant='primary' onClick={handleShow}>
-        +
-      </Button>
+      <button className={styles.modalButton} onClick={handleShow}>
+        <span className='material-symbols-outlined'>add</span>
+      </button>
 
       <Modal
         show={show}
@@ -104,10 +107,7 @@ export default function AddProductModal({ setProducts }: AddProductModalProps) {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <button
-            className={styles.newProductButton}
-            onClick={handleClose}
-          >
+          <button className={styles.newProductButton} onClick={handleClose}>
             Fechar
           </button>
           <button
