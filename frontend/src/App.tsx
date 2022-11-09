@@ -44,7 +44,7 @@ export default function App() {
     }
     const getProductsBySearch = async () => {
       setLoading(true);
-      const { data } = await axios.get(`${API_URL}/search?q=${search}`);
+      const { data } = await axios.get(`${API_URL}/find?q=${search}`);
       setProducts(data);
       setLoading(false);
     };

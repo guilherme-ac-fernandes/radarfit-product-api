@@ -24,6 +24,6 @@ export const deleteProduct = async (id: string) => {
 };
 
 export const getProductsBySearch = async (q: string) => {
-  const { data } = await axios.get(`${API_URL}/search?q=${q}`);
+  const { data } = await axios.get(`${API_URL}/find?q=${q}`);
   return data;
 };

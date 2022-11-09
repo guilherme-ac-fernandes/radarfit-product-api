@@ -9,7 +9,7 @@ const productModel = new ProductModel();
 const productService = new ProductService(productModel);
 const productController = new ProductController(productService);
 
-route.get('/search', (req, res) => productController.getByParams(req, res)); // /produtos/search?q=Harry
+route.get('/find', (req, res) => productController.getByParams(req, res)); // /produtos/find?q=string
 route.get('/', (req, res) => productController.getAll(req, res));
 route.get('/:id', (req, res) => productController.getOne(req, res));
 route.post('/', (req, res) => productController.create(req, res));
