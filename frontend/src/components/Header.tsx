@@ -1,8 +1,9 @@
-import { useState } from 'react';
+interface HeaderProps {
+  search: string,
+  setSearch: (newState: string) => void;
+}
 
-export default function Header() {
-  const [search, setSearch] = useState('');
-  
+export default function Header({ search, setSearch }: HeaderProps) {
   return (
     <header>
       <input
