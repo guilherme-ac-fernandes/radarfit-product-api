@@ -55,10 +55,12 @@ export default function App() {
   return (
     <main className={ styles.main }>
       <Header search={search} setSearch={setSearch} />
-      <h1>Produtos</h1>
-      <button disabled={addProduct} onClick={() => setAddProduct(true)}>
-        +
-      </button>
+      <div className={ styles.addProducts }>
+        <h2>Produtos</h2>
+        <button disabled={addProduct} onClick={() => setAddProduct(true)}>
+          +
+        </button>
+      </div>
       {addProduct && (
         <AddFormProduct handleClose={() => setAddProduct(false)} />
       )}

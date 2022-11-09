@@ -7,3 +7,28 @@
 .main {
   background-color: #fff;
 }
+
+.addProducts {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5% 30px;
+  color: #3d4e56;
+  border-bottom: 2px solid #dadbd9;
+  outline: 0;
+}
+
+.addProducts h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.addProducts button {
+  background-color: #2c3e45;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 30px;
+  height: 40px;
+  margin-right: 1%;
+  margin-bottom: 15px;
+  width: 40px;
+}
