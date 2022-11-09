@@ -5,6 +5,7 @@ import DetailsProduct from './components/DetailsProduct';
 import IProduct from './interfaces/IProduct';
 import axios from 'axios';
 import AddFormProduct from './components/AddFormProduct';
+import styles from './styles/App.module.css';
 
 const API_URL = 'http://localhost:3001/produtos';
 
@@ -52,7 +53,7 @@ export default function App() {
   }, [search])
 
   return (
-    <main>
+    <main className={ styles.main }>
       <Header search={search} setSearch={setSearch} />
       <h1>Produtos</h1>
       <button disabled={addProduct} onClick={() => setAddProduct(true)}>
