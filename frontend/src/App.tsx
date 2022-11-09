@@ -4,13 +4,14 @@ import DisplayProducts from './components/DisplayProducts';
 import DetailsProduct from './components/DetailsProduct';
 import IProduct from './interfaces/IProduct';
 import axios from 'axios';
-import AddFormProduct from './components/AddFormProduct';
+// import AddFormProduct from './components/AddFormProduct';
 import styles from './styles/App.module.css';
+import AddProductModal from './components/AddProductModal';
 
 const API_URL = 'http://localhost:3001/produtos';
 
 export default function App() {
-  const [addProduct, setAddProduct] = useState(false);
+  // const [addProduct, setAddProduct] = useState(false);
   const [detailsProduct, setDetailsProduct] = useState<IProduct | {}>({});
   const [products, setProducts] = useState<IProduct[] | []>([]);
   const [favoriteProducts, setFavoriteProducts] = useState<IProduct[] | []>([]);
@@ -57,13 +58,8 @@ export default function App() {
       <Header search={search} setSearch={setSearch} />
       <div className={styles.addProducts}>
         <h2>Produtos</h2>
-        <button disabled={addProduct} onClick={() => setAddProduct(true)}>
-          +
-        </button>
+        <AddProductModal setProducts={setProducts} />
       </div>
-      {addProduct && (
-        <AddFormProduct handleClose={() => setAddProduct(false)} />
-      )}
 
       <section className={styles.productsListAndDetails}>
         <DisplayProducts
@@ -83,7 +79,9 @@ export default function App() {
           />
         ) : (
           <div className={styles.textPlaceholder}>
-            <p>Clique em um produto para visualizar mais detalhes e mais opções.</p>
+            <p>
+              Clique em um produto para visualizar mais detalhes e mais opções.
+            </p>
           </div>
         )}
       </section>
