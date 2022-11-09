@@ -1,9 +1,18 @@
-import { useContext } from 'react';
-import ProductContext from '../context/ProductContext';
-import { IProduct } from '../context/ProductProvider';
+import IProduct from '../interfaces/IProduct';
 
-export default function DisplayProducts() {
-  const { products, loading } = useContext(ProductContext);
+interface DisplayProductsProps {
+  products: IProduct[] | [];
+  loading: boolean;
+  setDetailsProduct: (newState: IProduct) => void;
+  favoriteProducts: IProduct[] | [];
+}
+
+export default function DisplayProducts({
+  products,
+  loading,
+  setDetailsProduct,
+  favoriteProducts,
+}: DisplayProductsProps) {
 
   return (
     <section>
@@ -14,11 +23,13 @@ export default function DisplayProducts() {
         <ul>
           {products.map((product: IProduct) => {
             return (
-              <li key={product._id}>
-                <p>{product._id}</p>
+              <li key={product._id} onClick={() => setDetailsProduct(product)}>
                 <p>{product.produto}</p>
-                <p>{product.valor}</p>
                 <p>{product.descricao}</p>
+                <p>
+                  R$ <span>{product.valor.toFixed(2)}</span>
+                </p>
+                {favoriteProducts?.find(({ _id }) => _id === product._id) && <p>Favorito</p>}
               </li>
             );
           })}
