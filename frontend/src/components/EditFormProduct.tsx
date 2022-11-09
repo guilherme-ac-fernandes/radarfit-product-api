@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { updateProduct } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
+import styles from '../styles/EditFormProductProps.module.css';
 
 interface EditFormProductProps {
   product: IProduct;
@@ -32,8 +33,7 @@ export default function EditFormProduct({ product, setEdit }: EditFormProductPro
   }, [productName, productPrice, productDescription])
 
   return (
-    <form>
-      <h2>Editar Produto</h2>
+    <form className={styles.editForm}>
       <label htmlFor='form-product-name'>
         Produto
         <input
@@ -66,7 +66,7 @@ export default function EditFormProduct({ product, setEdit }: EditFormProductPro
           onChange={({ target: { value } }) => setProductDescription(value)}
         />
       </label>
-      <aside>
+      <aside className={styles.editFormButtonSection}>
         <button disabled={ addDisabled } onClick={ handleUpdate }>Atualizar</button>
         <button onClick={ () => setEdit(false) }>Fechar</button>
       </aside>
