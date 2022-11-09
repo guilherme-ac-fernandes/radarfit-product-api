@@ -26,11 +26,11 @@ export default function DetailsProduct({
       const filterFavorites = favoriteProducts.filter(
         ({ _id }) => _id !== product._id
       );
-      localStorage.setItem('favoriteProducts', JSON.stringify(filterFavorites));
+      localStorage.setItem('favorite', JSON.stringify(filterFavorites));
       return setFavoriteProducts(filterFavorites);
     }
     localStorage.setItem(
-      'favoriteProducts',
+      'favorite',
       JSON.stringify([...favoriteProducts, product])
     );
     return setFavoriteProducts([...favoriteProducts, product]);
@@ -47,7 +47,7 @@ export default function DetailsProduct({
   };
 
   return (
-    <section>
+    <aside>
       {!edit ? (
         <div>
           <h2>Detalhes</h2>
@@ -56,7 +56,7 @@ export default function DetailsProduct({
             R$ <span>{product.valor.toFixed(2)}</span>
           </p>
           <p>{product.descricao}</p>
-          <aside>
+          <div>
             <button onClick={() => setEdit(true)}>Editar</button>
             <button onClick={handleFavorite}>
               {favoriteProducts?.find(({ _id }) => _id === product._id)
@@ -64,11 +64,11 @@ export default function DetailsProduct({
                 : 'Favoritar'}
             </button>
             <button onClick={handleDelete}>Deletar</button>
-          </aside>
+          </div>
         </div>
       ) : (
         <EditFormProduct product={product} setEdit={setEdit} />
       )}
-    </section>
+    </aside>
   );
 }

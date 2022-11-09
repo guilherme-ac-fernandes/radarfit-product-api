@@ -17,7 +17,7 @@ export default function App() {
   const [search, setSearch] = useState<string>('');
 
   useEffect(() => {
-    const storageFavorites: string | null = localStorage.getItem("favoriteProducts");
+    const storageFavorites: string | null = localStorage.getItem("favorite");
     if (storageFavorites !== null) {
       const parsedFavorites = JSON.parse(storageFavorites);
       setFavoriteProducts(parsedFavorites);
