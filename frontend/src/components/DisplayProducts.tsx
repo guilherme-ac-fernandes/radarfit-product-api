@@ -20,7 +20,7 @@ export default function DisplayProducts({
     <section className={styles.displayProducts}>
       <h3>Lista de Produtos</h3>
       {loading ? (
-        <h4>Carregando...</h4>
+        <h4 className={styles.loading}>Carregando...</h4>
       ) : (
         <ul className={styles.productList}>
           {products.map((product: IProduct) => {

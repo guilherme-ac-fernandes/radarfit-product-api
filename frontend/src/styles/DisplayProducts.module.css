@@ -1,5 +1,6 @@
 .displayProducts {
-  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
 }
 
 .displayProducts h3 {
@@ -27,4 +28,11 @@
 
 .selectedProduct {
   background-color: #f1f2f0;
+}
+
+.loading {
+  color: #2d3f46;
+  font-size: 22px;
+  margin: 60px auto 0;
+  text-aligh: center;
 }
