@@ -18,7 +18,7 @@ export default function App() {
   const [search, setSearch] = useState<string>('');
 
   useEffect(() => {
-    const storageFavorites: string | null = localStorage.getItem("favorite");
+    const storageFavorites: string | null = localStorage.getItem('favorite');
     if (storageFavorites !== null) {
       const parsedFavorites = JSON.parse(storageFavorites);
       setFavoriteProducts(parsedFavorites);
@@ -50,12 +50,12 @@ export default function App() {
       setLoading(false);
     };
     getProductsBySearch();
-  }, [search])
+  }, [search]);
 
   return (
-    <main className={ styles.main }>
+    <main className={styles.main}>
       <Header search={search} setSearch={setSearch} />
-      <div className={ styles.addProducts }>
+      <div className={styles.addProducts}>
         <h2>Produtos</h2>
         <button disabled={addProduct} onClick={() => setAddProduct(true)}>
           +
@@ -65,7 +65,7 @@ export default function App() {
         <AddFormProduct handleClose={() => setAddProduct(false)} />
       )}
 
-      <section className={ styles.productsListAndDetails }>
+      <section className={styles.productsListAndDetails}>
         <DisplayProducts
           products={products}
           loading={loading}
@@ -73,13 +73,18 @@ export default function App() {
           setDetailsProduct={setDetailsProduct}
           detailsProduct={detailsProduct}
         />
-        {'produto' in detailsProduct && (
+        {'produto' in detailsProduct ? (
           <DetailsProduct
             product={detailsProduct}
             favoriteProducts={favoriteProducts}
             setFavoriteProducts={setFavoriteProducts}
             setProducts={setProducts}
+            setDetailsProduct={setDetailsProduct}
           />
+        ) : (
+          <div className={styles.textPlaceholder}>
+            <p>Clique em um produto para visualizar mais detalhes e mais opções.</p>
+          </div>
         )}
       </section>
     </main>

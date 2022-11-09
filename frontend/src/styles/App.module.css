@@ -28,7 +28,7 @@
   color: #fff;
   font-size: 30px;
   height: 40px;
-  margin-right: 1%;
+  margin-right: 3%;
   margin-bottom: 15px;
   width: 40px;
 }
@@ -36,9 +36,33 @@
 .productsListAndDetails {
   margin: 0 5% 30px;
   display: flex;
+  justify-content: space-between;
 }
 
 .productsListAndDetails section {
   padding: 20px;
-  width: 50%;
+  width: 48%;
+  min-height: 500px;
+  max-height: 500px;
+}
+
+.productsListAndDetails section:nth-child(1) {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.textPlaceholder {
+  background-color: #f1f2f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+}
+
+.textPlaceholder p {
+  color: #2d3f46;
+  font-size: 22px;
+  padding-inline: 20%;
+  text-align: justify;
+  text-justify: inter-word;
 }
