@@ -71,6 +71,7 @@ export default function App() {
           loading={loading}
           favoriteProducts={favoriteProducts}
           setDetailsProduct={setDetailsProduct}
+          detailsProduct={detailsProduct}
         />
         {'produto' in detailsProduct && (
           <DetailsProduct

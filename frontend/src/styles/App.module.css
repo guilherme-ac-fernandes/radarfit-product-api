@@ -34,13 +34,11 @@
 }
 
 .productsListAndDetails {
-  background-color: red;
   margin: 0 5% 30px;
   display: flex;
 }
 
 .productsListAndDetails section {
-  border: solid 1px blue;
   padding: 20px;
   width: 50%;
 }
