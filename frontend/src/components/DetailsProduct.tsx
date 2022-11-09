@@ -19,15 +19,22 @@ export default function DetailsProduct({
   const [edit, setEdit] = useState(false);
 
   const handleFavorite = () => {
-    const findProduct = favoriteProducts?.findIndex(({ _id }) => _id === product._id)
+    const findProduct = favoriteProducts?.findIndex(
+      ({ _id }) => _id === product._id
+    );
     if (findProduct >= 0) {
-      const filterFavorites = favoriteProducts.filter(({ _id }) => _id !== product._id);
+      const filterFavorites = favoriteProducts.filter(
+        ({ _id }) => _id !== product._id
+      );
       localStorage.setItem('favoriteProducts', JSON.stringify(filterFavorites));
       return setFavoriteProducts(filterFavorites);
     }
-    localStorage.setItem('favoriteProducts', JSON.stringify([...favoriteProducts, product]));
+    localStorage.setItem(
+      'favoriteProducts',
+      JSON.stringify([...favoriteProducts, product])
+    );
     return setFavoriteProducts([...favoriteProducts, product]);
-  }
+  };
 
   const handleDelete = async () => {
     try {
@@ -37,7 +44,7 @@ export default function DetailsProduct({
     } catch (error) {
       alert('Não foi possível deletar o produto!');
     }
-  }
+  };
 
   return (
     <section>
@@ -50,14 +57,18 @@ export default function DetailsProduct({
           </p>
           <p>{product.descricao}</p>
           <aside>
-            <button onClick={ () => setEdit(true) }>Editar</button>
-            <button onClick={ handleFavorite }>Favoritar</button>
-            <button onClick={ handleDelete }>Deletar</button>
+            <button onClick={() => setEdit(true)}>Editar</button>
+            <button onClick={handleFavorite}>
+              {favoriteProducts?.find(({ _id }) => _id === product._id)
+                ? 'Desfavoritar'
+                : 'Favoritar'}
+            </button>
+            <button onClick={handleDelete}>Deletar</button>
           </aside>
         </div>
       ) : (
-        <EditFormProduct product={ product } setEdit={ setEdit } />
-      )}      
+        <EditFormProduct product={product} setEdit={setEdit} />
+      )}
     </section>
   );
 }
