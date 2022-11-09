@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { updateProduct } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
-import styles from '../styles/EditFormProductProps.module.css';
+import styles from '../styles/EditFormProduct.module.css';
 
 interface EditFormProductProps {
   product: IProduct;
