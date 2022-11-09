@@ -65,7 +65,7 @@ export default function App() {
         <AddFormProduct handleClose={() => setAddProduct(false)} />
       )}
 
-      <section>
+      <section className={ styles.productsListAndDetails }>
         <DisplayProducts
           products={products}
           loading={loading}

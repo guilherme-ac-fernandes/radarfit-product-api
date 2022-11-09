@@ -32,3 +32,15 @@
   margin-bottom: 15px;
   width: 40px;
 }
+
+.productsListAndDetails {
+  background-color: red;
+  margin: 0 5% 30px;
+  display: flex;
+}
+
+.productsListAndDetails section {
+  border: solid 1px blue;
+  padding: 20px;
+  width: 50%;
+}
