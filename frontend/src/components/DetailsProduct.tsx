@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { deleteProduct, getAllProducts } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
 import EditFormProduct from './EditFormProduct';
+import styles from '../styles/DetailsProduct.module.css';
 
 interface DetailsProductProps {
   product: IProduct;
   favoriteProducts: IProduct[] | [];
   setFavoriteProducts: (newState: IProduct[]) => void;
   setProducts: (newState: IProduct[]) => void;
+  setDetailsProduct: (newState: IProduct | object) => void;
 }
 
 export default function DetailsProduct({
@@ -15,6 +17,7 @@ export default function DetailsProduct({
   favoriteProducts,
   setFavoriteProducts,
   setProducts,
+  setDetailsProduct,
 }: DetailsProductProps) {
   const [edit, setEdit] = useState(false);
 
@@ -47,16 +50,23 @@ export default function DetailsProduct({
   };
 
   return (
-    <section>
+    <section className={styles.detailsProductSection}>
+      <h3>{!edit ? 'Detalhes' : 'Editar Produto'}</h3>
+      <button
+        className={styles.closeDetailsProduct}
+        onClick={() => setDetailsProduct({})}
+      >
+        X
+      </button>
       {!edit ? (
-        <div>
-          <h3>Detalhes</h3>
-          <p>{product.produto}</p>
-          <p>
-            R$ <span>{product.valor.toFixed(2)}</span>
-          </p>
+        <div className={styles.detailsProduct}>
+          <h3>{product.produto}</h3>
+          <div className={styles.detailsProductValue}>
+            <p>Valor</p>
+            <p>R$ <span>{product.valor.toFixed(2)}</span></p>
+          </div>
           <p>{product.descricao}</p>
-          <div>
+          <aside className={styles.detailsButtonSection}>
             <button onClick={() => setEdit(true)}>Editar</button>
             <button onClick={handleFavorite}>
               {favoriteProducts?.find(({ _id }) => _id === product._id)
@@ -64,7 +74,7 @@ export default function DetailsProduct({
                 : 'Favoritar'}
             </button>
             <button onClick={handleDelete}>Deletar</button>
-          </div>
+          </aside>
         </div>
       ) : (
         <EditFormProduct product={product} setEdit={setEdit} />
