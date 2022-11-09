@@ -1,3 +1,5 @@
+import styles from '../styles/Header.module.css';
+
 interface HeaderProps {
   search: string,
   setSearch: (newState: string) => void;
@@ -5,7 +7,7 @@ interface HeaderProps {
 
 export default function Header({ search, setSearch }: HeaderProps) {
   return (
-    <header>
+    <header className={ styles.header }>
       <input
         type='text'
         data-testid='search-product-input'
