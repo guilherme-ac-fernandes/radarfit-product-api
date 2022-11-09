@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { createProduct } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
 import axios from 'axios';
+import styles from '../styles/AddProductModal.module.css';
 
 const API_URL = 'http://localhost:3001/produtos';
 
@@ -30,7 +31,7 @@ export default function AddProductModal({ setProducts }: AddProductModalProps) {
         setProducts(data);
       };
       getAllProducts();
-      setShow(false)
+      setShow(false);
     } catch (error) {
       alert('Não foi possível criar o produto!');
     }
@@ -61,11 +62,11 @@ export default function AddProductModal({ setProducts }: AddProductModalProps) {
         backdrop='static'
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Novo Produto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form>
+          <form className={styles.createNewForm}>
             <label htmlFor='form-product-name'>
               Produto
               <input
@@ -103,16 +104,19 @@ export default function AddProductModal({ setProducts }: AddProductModalProps) {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
-            Close
-          </Button>
-          <Button
+          <button
+            className={styles.newProductButton}
+            onClick={handleClose}
+          >
+            Fechar
+          </button>
+          <button
+            className={styles.newProductButton}
             disabled={addDisabled}
             onClick={handleSubmit}
-            variant='primary'
           >
-            Salvar mudanças
-          </Button>
+            Salvar
+          </button>
         </Modal.Footer>
       </Modal>
     </>
