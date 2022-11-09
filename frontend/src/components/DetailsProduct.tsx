@@ -52,23 +52,29 @@ export default function DetailsProduct({
   return (
     <section className={styles.detailsProductSection}>
       <h3>{!edit ? 'Detalhes' : 'Editar Produto'}</h3>
-      <button
-        className={styles.closeDetailsProduct}
+      <span
         onClick={() => setDetailsProduct({})}
+        className={`${styles.closeDetailsProduct} material-symbols-outlined`}
       >
-        X
-      </button>
+        close
+      </span>
       {!edit ? (
         <div className={styles.detailsProduct}>
           <h3>{product.produto}</h3>
           <div className={styles.detailsProductValue}>
             <p>Valor</p>
-            <p>R$ <span>{product.valor.toFixed(2)}</span></p>
+            <p>
+              R$ <span>{product.valor.toFixed(2)}</span>
+            </p>
           </div>
           <p>{product.descricao}</p>
           <aside className={styles.detailsButtonSection}>
-            <button onClick={() => setEdit(true)}>Editar</button>
-            <button onClick={handleFavorite}>
+            <button className={styles.iconButton} onClick={() => setEdit(true)}>
+              <span className='material-symbols-outlined'>edit</span>
+              Editar
+            </button>
+            <button className={styles.iconButton} onClick={handleFavorite}>
+            <span className='material-symbols-outlined'>sell</span>
               {favoriteProducts?.find(({ _id }) => _id === product._id)
                 ? 'Desfavoritar'
                 : 'Favoritar'}
