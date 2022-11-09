@@ -33,15 +33,25 @@ export default function DisplayProducts({
                 onClick={() => setDetailsProduct(product)}
               >
                 <div>
-                  <h4>{product.produto}</h4>
+                  <h5>{product.produto}</h5>
                   <p>{product.descricao}</p>
                   <p>
                     R$ <span>{product.valor.toFixed(2)}</span>
                   </p>
                 </div>
                 <aside>
-                  {favoriteProducts?.find(({ _id }) => _id === product._id) && (
-                    <p>Favorito</p>
+                  {favoriteProducts?.find(({ _id }) => _id === product._id) ? (
+                    <span
+                      className={`${styles.favorite} material-symbols-outlined`}
+                    >
+                      sell
+                    </span>
+                  ) : (
+                    <span
+                      className={`${styles.notFavorite} material-symbols-outlined`}
+                    >
+                      sell
+                    </span>
                   )}
                 </aside>
               </li>

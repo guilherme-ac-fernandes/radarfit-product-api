@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.productItem h4 {
+.productItem h5 {
   color: #2b8a6c;
 }
 
@@ -35,4 +35,12 @@
   font-size: 22px;
   margin: 60px auto 0;
   text-aligh: center;
+}
+
+.favorite {
+  color: #009d6a;
+}
+
+.notFavorite {
+  color: #2c3e45;
 }
