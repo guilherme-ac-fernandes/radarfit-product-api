@@ -1,10 +1,12 @@
 import IProduct from '../interfaces/IProduct';
+import styles from '../styles/DisplayProducts.module.css';
 
 interface DisplayProductsProps {
   products: IProduct[] | [];
   loading: boolean;
   setDetailsProduct: (newState: IProduct) => void;
   favoriteProducts: IProduct[] | [];
+  detailsProduct: IProduct | {};
 }
 
 export default function DisplayProducts({
@@ -12,24 +14,36 @@ export default function DisplayProducts({
   loading,
   setDetailsProduct,
   favoriteProducts,
+  detailsProduct,
 }: DisplayProductsProps) {
-
   return (
-    <section>
+    <section className={styles.displayProducts}>
       <h3>Lista de Produtos</h3>
       {loading ? (
         <h4>Carregando...</h4>
       ) : (
-        <ul>
+        <ul className={styles.productList}>
           {products.map((product: IProduct) => {
             return (
-              <li key={product._id} onClick={() => setDetailsProduct(product)}>
-                <p>{product.produto}</p>
-                <p>{product.descricao}</p>
-                <p>
-                  R$ <span>{product.valor.toFixed(2)}</span>
-                </p>
-                {favoriteProducts?.find(({ _id }) => _id === product._id) && <p>Favorito</p>}
+              <li
+                className={`${styles.productItem} ${
+                  detailsProduct === product ? styles.selectedProduct : ''
+                }`}
+                key={product._id}
+                onClick={() => setDetailsProduct(product)}
+              >
+                <div>
+                  <h4>{product.produto}</h4>
+                  <p>{product.descricao}</p>
+                  <p>
+                    R$ <span>{product.valor.toFixed(2)}</span>
+                  </p>
+                </div>
+                <aside>
+                  {favoriteProducts?.find(({ _id }) => _id === product._id) && (
+                    <p>Favorito</p>
+                  )}
+                </aside>
               </li>
             );
           })}
