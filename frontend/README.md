@@ -1,4 +1,4 @@
-# FrontEnd 📱🎧📕
+# FrontEnd
 
 Demonstração de algumas seções construída na aplicação web.
 
