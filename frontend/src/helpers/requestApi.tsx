@@ -1,7 +1,7 @@
 import axios from 'axios';
 import IProduct from '../interfaces/IProduct';
 
-const API_URL = 'http://localhost:3001/produtos';
+export const API_URL = 'https://radarfit-product-api-production.up.railway.app/produtos';
 
 export const getAllProducts = async () => {
   const { data } = await axios.get(API_URL);
@@ -14,6 +14,7 @@ export const createProduct = async (payload: Partial<IProduct>) => {
 };
 
 export const updateProduct = async (id: string, payload: Partial<IProduct>) => {
+  console.log(payload, `${API_URL}/${id}`);
   const { data } = await axios.put(`${API_URL}/${id}`, payload);
   return data;
 };

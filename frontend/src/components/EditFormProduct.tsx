@@ -8,10 +8,15 @@ interface EditFormProductProps {
   setEdit: (newState: boolean) => void;
 }
 
-export default function EditFormProduct({ product, setEdit }: EditFormProductProps) {
+export default function EditFormProduct({
+  product,
+  setEdit,
+}: EditFormProductProps) {
   const [productName, setProductName] = useState(product.produto);
   const [productPrice, setProductPrice] = useState(String(product.valor));
-  const [productDescription, setProductDescription] = useState(product.descricao);
+  const [productDescription, setProductDescription] = useState(
+    product.descricao
+  );
   const [addDisabled, setAddDisabled] = useState(true);
 
   const handleUpdate = async () => {
@@ -22,15 +27,20 @@ export default function EditFormProduct({ product, setEdit }: EditFormProductPro
         descricao: productDescription,
       });
     } catch (error) {
+      console.log(error);
       alert('Não foi possível atualizar o produto!');
     }
   };
 
   useEffect(() => {
-    if(productName.length > 0 && productPrice.length > 0 && productDescription.length > 0){
+    if (
+      productName.length > 0 &&
+      productPrice.length > 0 &&
+      productDescription.length > 0
+    ) {
       return setAddDisabled(false);
     }
-  }, [productName, productPrice, productDescription])
+  }, [productName, productPrice, productDescription]);
 
   return (
     <form className={styles.editForm}>
@@ -67,8 +77,10 @@ export default function EditFormProduct({ product, setEdit }: EditFormProductPro
         />
       </label>
       <aside className={styles.editFormButtonSection}>
-        <button disabled={ addDisabled } onClick={ handleUpdate }>Atualizar</button>
-        <button onClick={ () => setEdit(false) }>Fechar</button>
+        <button disabled={addDisabled} onClick={handleUpdate}>
+          Atualizar
+        </button>
+        <button onClick={() => setEdit(false)}>Fechar</button>
       </aside>
     </form>
   );

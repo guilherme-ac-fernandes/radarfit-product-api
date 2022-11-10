@@ -44,6 +44,7 @@ export default function DetailsProduct({
       await deleteProduct(product._id);
       const allProduct = await getAllProducts();
       setProducts(allProduct);
+      setDetailsProduct({})
     } catch (error) {
       alert('Não foi possível deletar o produto!');
     }

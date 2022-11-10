@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { createProduct } from '../helpers/requestApi';
+import { API_URL, createProduct } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
 import axios from 'axios';
 import styles from '../styles/AddProductModal.module.css';
-
-const API_URL = 'http://localhost:3001/produtos';
 
 interface AddProductModalProps {
   setProducts: (newState: IProduct[] | []) => void;
