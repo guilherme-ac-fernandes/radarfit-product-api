@@ -27,7 +27,7 @@ export default function EditFormProduct({
         descricao: productDescription,
       });
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       alert('Não foi possível atualizar o produto!');
     }
   };
