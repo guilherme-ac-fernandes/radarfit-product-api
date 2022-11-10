@@ -14,7 +14,7 @@ Consiste em uma aplicação full-stack para gerenciamento de produtos, onde é p
 
 ### Demonstração
 
-👨🏻‍💻 **Acessar:** _[FrontEnd](https://radarfit-frontend-zeta.vercel.app)_ e _[BackEnd](https://radarfit-product-api-production.up.railway.app/produtos)_
+👨🏻‍💻 **Acessar:** _[FrontEnd](https://radarfit-frontend-zeta.vercel.app)_ e _[BackEnd](https://radarfit-product-api-production.up.railway.app)_
 
 <br />
 <p align="center">
