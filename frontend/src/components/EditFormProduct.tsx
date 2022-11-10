@@ -28,7 +28,7 @@ export default function EditFormProduct({
       });
     } catch (error) {
       // console.log(error);
-      // alert('Não foi possível atualizar o produto!');
+      alert('Não foi possível atualizar o produto!');
     }
   };
 
