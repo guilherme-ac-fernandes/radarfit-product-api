@@ -11,7 +11,7 @@ import {
 } from '../../mocks/productsMock';
 import { ErrorTypes } from '../../../errors/catalog';
 
-describe('Car Model', () => {
+describe('Product Model', () => {
   const productModel = new ProductModel();
 
   before(() => {
