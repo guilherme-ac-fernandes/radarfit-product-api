@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { updateProduct } from '../helpers/requestApi';
+import { API_URL, updateProduct } from '../helpers/requestApi';
 import IProduct from '../interfaces/IProduct';
 import styles from '../styles/EditFormProduct.module.css';
 
@@ -21,11 +22,19 @@ export default function EditFormProduct({
 
   const handleUpdate = async () => {
     try {
-      await updateProduct(product._id, {
-        produto: productName,
-        valor: Number(productPrice),
-        descricao: productDescription,
-      });
+      // await updateProduct(product._id, {
+      //   produto: productName,
+      //   valor: Number(productPrice),
+      //   descricao: productDescription,
+      // });
+      await axios
+        .put(`${API_URL}/${product._id}`, {
+          produto: productName,
+          valor: Number(productPrice),
+          descricao: productDescription,
+        })
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
     } catch (error) {
       console.log(error);
       alert('Não foi possível atualizar o produto!');
