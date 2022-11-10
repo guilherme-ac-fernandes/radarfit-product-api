@@ -14,6 +14,30 @@ Consiste em uma aplicação full-stack para gerenciamento de produtos, onde é p
 * Construída utilizado React, Context API, React Hooks, Typescript, Bootstrap, React-Bootstrap e CSS
 * Hospedagem na plataforma Vercel
 
+### Instruções
+
+- Para rodar a aplicação localmente e os testes do backend, realize o clone do projeto e utilize os comandos a seguir:
+
+```
+Para clonar o projeto:
+git clone git@github.com:guilherme-ac-fernandes/radarfit-product-api.git
+
+Para rodar o BackEnd, instalar as dependências e iniciar a API:
+<-- na raiz do projeto -->
+cd backend && npm install
+npm run dev
+
+Para rodar o testes do BackEnd:
+<-- na raiz do projeto -->
+cd backend && npm install
+npm run test:coverage
+
+Para rodar o Front, instalar as dependências e iniciar a aplicação web:
+<-- na raiz do projeto -->
+cd frontend && npm install
+npm start
+```
+
 ### Demonstração
 
 👨🏻‍💻 **Acessar:** _[FrontEnd](https://radarfit-frontend-zeta.vercel.app)_ e _[BackEnd](https://radarfit-product-api-production.up.railway.app)_
