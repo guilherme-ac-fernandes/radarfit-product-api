@@ -40,10 +40,17 @@ const productMockMongoUpdate: IProduct & {
   updated: '2022-11-10T18:09:44.786Z',
 };
 
+const invalidProduct: unknown = {
+  product: 'Alexa',
+  value: 340,
+  description: 'Vendido pela Amazon',
+};
+
 export {
   productId,
   productMock,
   productMockMongo,
   productMockUpdate,
   productMockMongoUpdate,
+  invalidProduct,
 };

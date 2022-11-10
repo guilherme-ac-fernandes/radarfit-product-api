@@ -16,7 +16,6 @@ export default class ProductService implements IService<IProduct> {
 
   public async getByParams(search: string): Promise<IProduct[]> {
     const products = await this._product.getByParams(search);
-    if (!products) throw new Error(ErrorTypes.EntityNotFound);
     return products as unknown as IProduct[];
   }
 
