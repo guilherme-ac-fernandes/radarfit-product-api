@@ -26,4 +26,4 @@ Nas requisições POST e PUT é necessário informar o seguinte JSON:
 }
 ```
 
-Observação: a rota PATCH necessita informa pelo menos um dos campos presentes nas requisições POST e PUT.
+**Observação:** a rota PATCH necessita informa pelo menos um dos campos presentes nas requisições POST e PUT.
