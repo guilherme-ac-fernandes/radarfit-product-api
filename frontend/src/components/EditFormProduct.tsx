@@ -20,17 +20,17 @@ export default function EditFormProduct({
   const [addDisabled, setAddDisabled] = useState(true);
 
   const handleUpdate = async () => {
-    try {
-      await updateProduct(product._id, {
-        produto: productName,
-        valor: Number(productPrice),
-        descricao: productDescription,
-      });
-      alert('Produto atualizado com sucesso!');
-    } catch (error) {
-      // console.log(error);
-      alert('Não foi possível atualizar o produto!');
-    }
+    // try {
+    await updateProduct(product._id, {
+      produto: productName,
+      valor: Number(productPrice),
+      descricao: productDescription,
+    });
+    alert('Produto atualizado com sucesso!');
+    // } catch (error) {
+    //   // console.log(error);
+    //   alert('Não foi possível atualizar o produto!');
+    // }
   };
 
   useEffect(() => {
