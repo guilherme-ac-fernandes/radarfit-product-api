@@ -1,17 +1,29 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
-    "rootDir": ".",
     "target": "es2019",
     "module": "commonjs",
-    // "typeRoots": [
-    //   "src/@types",
-    //   "./node_modules/@types"
-    // ],
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,                     
+    "outDir": "./build",
+    "rootDir": "./src",
     "strict": true,
-    "skipLibCheck": true
+    "moduleResolution": "node",
+    "baseUrl": ".", 
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "paths": {
+      "*": ["node_modules/*"]
+    }
   },
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "**/node_modules/*",
+    "node_modules",
+    "**/*.test.ts",
+    "**/test/**/*",
+  ]
 }
