@@ -20,20 +20,20 @@ Consiste em uma aplicação full-stack para gerenciamento de produtos, onde é p
 Para clonar o projeto:
 git clone git@github.com:guilherme-ac-fernandes/radarfit-product-api.git
 
-Para rodar o BackEnd, instalar as dependências e iniciar a API:
+Para rodar a aplicação dockerizada, instalar as dependências e iniciar as aplicações:
 <-- na raiz do projeto -->
-cd backend && npm install
-npm run dev
+npm run compose:up // para subir o docker-compose
+
+Para parar a aplicação dockerizada:
+<-- na raiz do projeto -->
+npm run compose:down // para parar os containers
 
 Para rodar o testes do BackEnd:
 <-- na raiz do projeto -->
-cd backend && npm install
-npm run test:coverage
-
-Para rodar o Front, instalar as dependências e iniciar a aplicação web:
-<-- na raiz do projeto -->
-cd frontend && npm install
-npm start
+npm run back:acess
+npm test // para rodar o teste simplificado
+npm run test:coverage // para avaliar a cobertura dos testes
+exit // para sair do container do backend
 ```
 
 ### Demonstração
