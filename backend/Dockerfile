@@ -1,6 +1,13 @@
-FROM node:14-alpine
-WORKDIR /app
+FROM node:16.14-alpine
+
+WORKDIR /app-backend
+
 COPY package.json .
+
 RUN npm install
+
 COPY . .
-CMD ["tsnd", "src/server.ts"]
+
+CMD ["npm", "run", "dev"]
+
+EXPOSE 3001
