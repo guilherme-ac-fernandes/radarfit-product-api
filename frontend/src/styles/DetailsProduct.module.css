@@ -49,6 +49,8 @@
 .detailsButtonSection {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5px;
   margin-top: 30px;
 }
 
@@ -60,15 +62,12 @@
   color: white;
   cursor: pointer;
   padding: 8px 32px;
-  width: 28%;
-}
-
-.detailsButtonSection button:nth-child(2) {
-  width: 35%;
+  width: 30%;
+  min-width: 140px;
 }
 
 .iconButton {
   display: flex;
-  aligh-itens: center;
+  align-items: center;
   justify-content: space-around;
 }
