@@ -1,0 +1,23 @@
+{
+  "name": "radarfit-product-api",
+  "version": "1.0.0",
+  "description": "Consiste em uma aplicação full-stack para gerenciamento de produtos, onde é possível: criar, pesquisar, editar, apagar e favoritar os produtos.",
+  "main": "",
+  "scripts": {
+    "compose:up": "docker-compose up -d --build",
+    "compose:down": "docker-compose down",
+    "front:acess": "docker exec -it products_frontend /bin/sh",
+    "back:acess": "docker exec -it products_backend /bin/sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilherme-ac-fernandes/radarfit-product-api.git"
+  },
+  "keywords": [],
+  "author": "Guilherme Fernandes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilherme-ac-fernandes/radarfit-product-api/issues"
+  },
+  "homepage": "https://github.com/guilherme-ac-fernandes/radarfit-product-api#readme"
+}
