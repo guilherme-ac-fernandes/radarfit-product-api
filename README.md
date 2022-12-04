@@ -40,8 +40,6 @@ npm start
 
 ### Demonstração
 
-👨🏻‍💻 **Acessar:** _[FrontEnd](https://radarfit-frontend-zeta.vercel.app)_ e _[BackEnd](https://radarfit-product-api-production.up.railway.app)_
-
 <br />
 <p align="center">
   <img src="https://github.com/guilherme-ac-fernandes/radarfit-product-api/blob/main/demo/product_details.png" alt="Products RadarFit Aplication - Demostração"/>
