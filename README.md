@@ -31,7 +31,8 @@ npm run compose:down // para parar os containers
 Para rodar o testes do BackEnd:
 <-- na raiz do projeto -->
 npm run back:acess
-npm run test:coverage
+npm test // para rodar o teste simplificado
+npm run test:coverage // para avaliar a cobertura dos testes
 exit // para sair do container do backend
 ```
 
