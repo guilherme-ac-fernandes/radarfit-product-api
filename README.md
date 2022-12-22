@@ -8,6 +8,7 @@ Consiste em uma aplicação full-stack para gerenciamento de produtos, onde é p
 * Utilizando os princípios SOLID e Programação Orientada a Objetos
 * Aplicando Arquitetura de Software, com as camadas de Modelo, Serviço e de Controladores
 * Testes unitários criados utilizando Mocha, Chai e Sinon
+* Endpoints: _[acessar](https://github.com/guilherme-ac-fernandes/radarfit-product-api/tree/main/backend)_
 
 ### FrontEnd:
 * Construída utilizado React, Context API, React Hooks, Typescript, Bootstrap, React-Bootstrap e CSS
